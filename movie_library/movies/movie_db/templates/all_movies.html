@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'main.html' %}
 
-<h1>Members</h1>
-
-<ul>
-  {% for x in mymovies %}
-  <li><a href="details/{{ x.id }}">{{ x.movie_name }} {{ x.director }}</a></li>
-  {% endfor %}
-</ul>
-
-</body>
-</html>
+{% block content %}
+  <ul>
+    {% for x in mymovies %}
+    <li><a href="details/{{ x.id }}">{{ x.movie_name }} {{ x.director }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends 'main.html' %}
 
-<body>
-
+{% block content %}
 <h1>{{ mymovie.movie_name }}</h1>
 
 <p>Režisér: {{ mymovie.director }}</p>
@@ -10,6 +8,4 @@
 <p>Žánr: {{ mymovie.genre }}</p>
 
 <p>Zpět <a href="/movie_db">na seznam filmů</a></p>
-
-</body>
-</html>
+{% endblock %}
