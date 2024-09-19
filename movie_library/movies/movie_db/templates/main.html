@@ -9,11 +9,7 @@
 <body>
     <div class="container bg-light py-3">
         {% block header %}
-            <ul class="d-flex justify-content-center list-unstyled column-gap-3 py-3">
-                <li><a href="/">Homepage</a></li>
-                <li><a href="/add_movie">Přidat film</a></li>
-                <li><a href="/movie_db">Seznam filmů</a></li>
-            </ul>
+            {% include "header.html" %}
         {% endblock %}
 
         {% block content %}

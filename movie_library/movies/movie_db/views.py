@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import Movie
 from .forms import MovieForm
+from .forms import UserRegisterForm
 
 def movies(request):
   mymovies = Movie.objects.all().values()
@@ -35,3 +37,20 @@ def add_movie(request):
       return redirect("movies")
 
   return render(request, 'add_movie.html', {'form': MovieForm()})
+
+
+@login_required
+def profile_page(request):
+    return render(request, 'profile.html')
+
+
+def register_page(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+
+    return render(request,
+                  'register.html',
+                  {'form': UserRegisterForm()})
